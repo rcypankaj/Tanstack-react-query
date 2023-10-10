@@ -13,6 +13,7 @@ import { useQuery, useMutation } from "@tanstack/react-query";
 import { fetchEvent, queryClient, updateEvent } from "../../util/http.js";
 // import LoadingIndicator from "../UI/LoadingIndicator.jsx";
 import ErrorBlock from "../UI/ErrorBlock.jsx";
+import { Fragment } from "react";
 
 export default function EditEvent() {
   const navigate = useNavigate();
@@ -88,14 +89,14 @@ export default function EditEvent() {
         {state === "submitting" ? (
           <p>Sending data...</p>
         ) : (
-          <>
+          <Fragment>
             <Link to="../" className="button-text">
               Cancel
             </Link>
             <button type="submit" className="button">
               Update
             </button>
-          </>
+          </Fragment>
         )}
       </EventForm>
     );
